@@ -264,3 +264,12 @@ body {
 .additional-info__languages-item {
   color: var(--secondary-text-color);
 }
+
+/* Scroll */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #a9a9a9;
+  border-radius: 20px;
+}
