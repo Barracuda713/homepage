@@ -17,6 +17,10 @@ body {
   --text-decoration-color: #ff9a00;
 }
 
+main {
+  position: relative;
+}
+
 .container {
   margin: 0 auto;
   padding: 0 30px;
@@ -263,4 +267,19 @@ body {
 
 .additional-info__languages-item {
   color: var(--secondary-text-color);
+}
+
+/* Paws background */
+.paw {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("assets/paw-solid.svg");
+  animation: walk 2s linear infinite;
+  opacity: 0;
+}
+
+@keyframes walk {
+  25%  {opacity: 1;}
+  100% {opacity: 0;}
 }
