@@ -2,7 +2,7 @@ const numberOfCats = 5;
 
 let screenWidth = window.innerWidth;
 let screenHeight = window.innerHeight;
-let screenOffset = 100;
+let screenOffset = 500;
 
 const pawSize = 60;
 const pawSideStep = 40;
@@ -37,7 +37,7 @@ const getDistanceBetweenDots = (p1, p2) => {
   return Math.sqrt(Math.pow(p2[0] - p1[0], 2) + Math.pow(p2[1] - p1[1], 2));
 };
 
-const body = document.body;
+const main = document.getElementById('main');
 const draw = (iD, p, d, del) => {
   let paw = document.createElement('div');
   paw.classList.add('paw');
@@ -47,7 +47,7 @@ const draw = (iD, p, d, del) => {
   paw.style.top = `${p[1] - Math.floor(pawSize / 2)}px`;
   paw.style.transform = `rotate(${-d + iD}deg)`;
   paw.style.animationDelay = `${del}s`;
-  body.appendChild(paw);
+  main.appendChild(paw);
   setTimeout((p) => {
     p.remove();
   }, 2000 + del * 1000, paw);
