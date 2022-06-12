@@ -270,6 +270,7 @@ main {
   color: var(--secondary-text-color);
 }
 
+
 /* Paws background */
 .paw {
   position: absolute;
@@ -283,4 +284,12 @@ main {
 @keyframes walk {
   25%  {opacity: 1;}
   100% {opacity: 0;}
+
+/* Scroll */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #a9a9a9;
+  border-radius: 20px;
 }
