@@ -2,7 +2,7 @@ const numberOfCats = 5;
 
 let screenWidth = window.innerWidth;
 let screenHeight = window.innerHeight;
-let screenOffset = 500;
+let minDistance = 400;
 
 const pawSize = 60;
 const pawSideStep = 40;
@@ -10,8 +10,8 @@ const pawSideStep = 40;
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
 const getRandomPointOnScreen = () => {
   return [
-    getRandomInt(0, screenWidth),
-    getRandomInt(0, screenHeight)
+    getRandomInt(-minDistance / 2, screenWidth + minDistance / 2),
+    getRandomInt(-minDistance / 2, screenHeight + minDistance / 2)
   ];
 };
 
@@ -19,9 +19,13 @@ let pos = [];
 
 for (let i = 0; i < numberOfCats; i++) {
   const curvePoints = 3;
-  let a = [];
-  for (let j = 0; j < curvePoints; j++) {
-    a.push(getRandomPointOnScreen());
+  let a = [getRandomPointOnScreen()];
+  for (let j = 1; j < curvePoints; j++) {
+    let point = getRandomPointOnScreen();
+    while (Math.sqrt(Math.pow((point[0] - a[j - 1][0]), 2) + Math.pow((point[1] - a[j - 1][1]), 2)) < minDistance) {
+      point = getRandomPointOnScreen();
+    }
+    a.push(point);
   }
   pos.push(a);
 }
